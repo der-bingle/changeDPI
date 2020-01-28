@@ -1,5 +1,21 @@
 'use strict';
 
+function atob(str) {
+  return Buffer.from(str, 'base64').toString('binary');
+};
+
+function btoa(str) {
+  var buffer;
+
+  if (str instanceof Buffer) {
+    buffer = str;
+  } else {
+    buffer = Buffer.from(str.toString(), 'binary')
+  }
+
+  return buffer.toString('base64')
+};
+
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
