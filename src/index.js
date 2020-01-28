@@ -1,3 +1,19 @@
+function atob(str) {
+  return Buffer.from(str, 'base64').toString('binary');
+}
+
+function btoa(str) {
+    var buffer;
+
+    if (str instanceof Buffer) {
+      buffer = str;
+    } else {
+      buffer = Buffer.from(str.toString(), 'binary');
+    }
+
+    return buffer.toString('base64');
+  }
+
 function createPngDataTable() {
   /* Table of CRCs of all 8-bit messages. */
   const crcTable = new Int32Array(256);
